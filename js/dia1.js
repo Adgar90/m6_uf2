@@ -112,27 +112,35 @@ function executaFuncionsArray() {
     // funció push()
     document.write(`<strong>25. Array inicial:</strong> ${arrNumbers} && length: ${arrNumbers.length}<strong> → Mètode i paràmetres:</strong> arrNumbers.push(5)<strong> → Resultat:</strong> length: ${arrNumbers.push(5)} array: ${arrNumbers}<br>`);
     // funció reduce()
-    document.write(`<strong>26. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.reduce()<strong> → Resultat:</strong> ${arrColors.reduce()}<br>`);
+    arrNumbers = [1, 2, 3, 4, 5];
+    let resultatReduce = arrNumbers.reduce(sumaNombres);
+    document.write(`<strong>26. Array inicial:</strong> ${arrNumbers}<strong> → Mètode i paràmetres:</strong> arrNumbers.reduce(sumaNombres)<strong> → Resultat:</strong> ${resultatReduce}<br>`);
     // funció reduceRight()
-    document.write(`<strong>27. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    arrNumbers = [15, 25, 100];
+    let resultatReduceRigth = arrNumbers.reduceRight(restaNombres); // el total passa ser el valor final de l'array
+    document.write(`<strong>27. Array inicial:</strong> ${arrNumbers}<strong> → Mètode i paràmetres:</strong> arrNumbers.reduceRight(restaNombres)<strong> → Resultat:</strong> ${resultatReduceRigth}<br>`);
     // funció reverse()
-    document.write(`<strong>28. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>28. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.reverse()<strong> → Resultat:</strong> ${arrColors.reverse()}<br>`);
     // funció shift()
-    document.write(`<strong>29. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>29. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.shift()<strong> → Resultat:</strong> ${arrColors.shift()}<br>`);
     // funció slice()
-    document.write(`<strong>30. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>30. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.slice(1, 3)<strong> → Resultat:</strong> ${arrColors.slice(1, 3)}<br>`);
     // funció some()
-    document.write(`<strong>31. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    arrNumbers = [4, 1, 8, 10, 6, 13];
+    document.write(`<strong>31. Array inicial:</strong> ${arrNumbers}<strong> → Mètode i paràmetres:</strong> arrNumbers.some(esPrimer)<strong> → Resultat:</strong> ${arrNumbers.some(esPrimer)}<br>`);
     // funció sort()
-    document.write(`<strong>32. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    arrColors = ["Verd", "Blau", "Groc", "Avellana"];
+    document.write(`<strong>32. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.sort()<strong> → Resultat:</strong> ${arrColors.sort()}<br>`);
     // funció splice()
-    document.write(`<strong>33. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>33. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.splice(2, 1)<strong> → Resultat:</strong> ${arrColors.splice(2, 1)}<br>`);
     // funció toString()
-    document.write(`<strong>34 Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>34 Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.toString()<strong> → Resultat:</strong> ${arrColors.toString()}<br>`);
     // funció unshift()
-    document.write(`<strong>35. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>35. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.unshift("Vermell", "Turquesa")<strong> → Resultat:</strong> `);
+    arrColors.unshift("Vermell", "Turquesa");
+    document.write(`${arrColors}<br>`)
     // funció valueOf()
-    document.write(`<strong>36. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.every(menorQueMarro)<strong> → Resultat:</strong> ${arrColors.every(menorQueMarro)}<br>`);
+    document.write(`<strong>36. Array inicial:</strong> ${arrColors}<strong> → Mètode i paràmetres:</strong> arrColors.valueOf()<strong> → Resultat:</strong> ${arrColors.valueOf()}<br>`);
 }
 
 Array.prototype.enMajuscules = function() {
@@ -140,3 +148,16 @@ Array.prototype.enMajuscules = function() {
       this[i] = this[i].toUpperCase();
     }
 };
+
+function sumaNombres(total, num) {
+    return total + num;
+}
+function restaNombres(total, num) {
+    return total - num;
+}
+function esPrimer(num) {
+    for (let i=2; i<num; i++) {
+        if (num % i == 0) { return false; }
+    }
+    return true;
+}
